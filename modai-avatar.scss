@@ -1,0 +1,84 @@
+@import "compass/css3/border-radius";
+
+body {
+	background-color: #8bcbcd;
+	padding: 0;
+	margin: 0;
+
+	&.night {
+		background-color: #3c454c;
+	}
+}
+
+.avatar {
+	margin: 0 auto;
+	width: 321px;
+
+	.avatar-body {
+		@include border-bottom-radius(107px);
+		background-color: #E8C42D;
+		border-top: 20px solid #000;
+		height: 180px;
+		width: 107px;
+
+		.avatar-energy-mask {
+			background-color: #000;
+			height: 0px; // Full height is 127px
+			margin: 20px 0 0;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			width: 107px;
+		}
+
+		.avatar-face {
+			height: 180px;
+			width: 107px;
+
+			img {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
+
+	.avatar-notice {
+		@include border-top-right-radius(20px);
+		@include border-bottom-radius(20px);
+		background-color: #E8C42D;
+		display: none;
+		height: 600px;
+		position: relative;
+		width: 400px;
+
+		.avatar-notice-top {
+			background-color: #E8C42D;
+			height: 20px;
+			margin: 0 0 0 107px;
+			position: relative;
+			top: -20px;
+			width: 293px;
+
+			span {
+				@include border-bottom-left-radius(20px);
+				background-color: #8bcbcd;
+				display: block;
+				height: 100%;
+			}
+		}
+	}
+
+	&.active {
+		.avatar-body {
+			@include border-bottom-radius(0);
+		}
+
+		.avatar-notice {
+			display: block;
+		}
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
