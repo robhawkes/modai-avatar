@@ -23,6 +23,9 @@ function initAvatar() {
 		battery.addEventListener("levelchange", onBatteryLevelChange, false);
 		// Device connected to power, or unplugged
 		battery.addEventListener("chargingchange", onBatteryChargingChange, false);
+
+		// Update battery first time around
+		updateEnergy(battery.level);
 	}
 }
 
