@@ -20,22 +20,31 @@ function initAvatar() {
 
 	if (battery) {
 		// Device battery level changed
-		battery.addEventListener("levelchange", onBatteryLevelChange, false);
+		battery.addEventListener("levelchange", updateBattery);
 		// Device connected to power, or unplugged
-		battery.addEventListener("chargingchange", onBatteryChargingChange, false);
+		battery.addEventListener("chargingchange", updateBattery);
 
 		// Update battery first time around
-		updateEnergy(battery.level);
+		updateBattery();
 	}
 }
 
-function updateEnergy(energy) {
-	avatarState.energy = energy;
+function updateBattery() {
+	avatarState.energy = battery.level;
 
 	for (var i = 0; i < avatars.length; i++) {
 		var avatar = avatars[i];
 		var energyMask = avatar.getElementsByClassName("avatar-energy-mask")[0];
+		var charge = avatar.getElementsByClassName("avatar-charge")[0];
+
 		energyMask.style.height = avatarState.maxHeight-(avatarState.maxHeight*avatarState.energy);
+		charge.style.height = avatarState.maxHeight-(avatarState.maxHeight*avatarState.energy);
+
+		if (battery.charging) {
+			avatar.classList.add("charge");
+		} else {
+			avatar.classList.remove("charge");
+		}
 	}
 }
 
@@ -44,14 +53,6 @@ function onClick(e) {
 	e.stopPropagation();
 
 	this.classList.toggle("active");
-}
-
-function onBatteryLevelChange(e) {
-	updateEnergy(battery.level);
-}
-
-function onBatteryChargingChange(e) {
-	// battery.charging;
 }
 
 initAvatar();

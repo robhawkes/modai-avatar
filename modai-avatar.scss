@@ -12,22 +12,32 @@ body {
 }
 
 .avatar {
-	margin: 0 auto;
+	margin: 0 50px;
 	width: 321px;
 
 	.avatar-body {
 		@include border-bottom-radius(107px);
 		background-color: #E8C42D;
-		border-top: 20px solid #000;
-		height: 180px;
+		height: 200px;
 		width: 107px;
+
+		.avatar-charge {
+			@include transition-property(all);
+			@include transition-duration(0.4s);
+			background-color: #000;
+			height: 147px; // Full height is 147px
+			display: none;
+			overflow: hidden;
+			position: absolute;
+			top: 0;
+			width: 107px;
+		}
 
 		.avatar-energy-mask {
 			@include transition-property(all);
 			@include transition-duration(0.4s);
 			background-color: #000;
-			height: 0px; // Full height is 127px
-			margin: 20px 0 0;
+			height: 0px; // Full height is 147px
 			overflow: hidden;
 			position: absolute;
 			top: 0;
@@ -35,7 +45,9 @@ body {
 		}
 
 		.avatar-face {
-			height: 180px;
+			height: 200px;
+			position: absolute;
+			top: 0;
 			width: 107px;
 
 			img {
@@ -50,7 +62,7 @@ body {
 		@include border-bottom-radius(20px);
 		background-color: #E8C42D;
 		display: none;
-		height: 600px;
+		height: 200px;
 		position: relative;
 		width: 400px;
 
@@ -77,6 +89,16 @@ body {
 		}
 
 		.avatar-notice {
+			display: block;
+		}
+	}
+
+	&.charge {
+		.avatar-energy-mask {
+			display: none;
+		}
+
+		.avatar-charge {
 			display: block;
 		}
 	}

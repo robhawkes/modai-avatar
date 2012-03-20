@@ -11,7 +11,7 @@ body.night {
 
 /* line 14, modai-avatar.scss */
 .avatar {
-  margin: 0 auto;
+  margin: 0 50px;
   width: 321px;
 }
 /* line 18, modai-avatar.scss */
@@ -29,11 +29,28 @@ body.night {
   -khtml-border-bottom-right-radius: 107px;
   border-bottom-right-radius: 107px;
   background-color: #E8C42D;
-  border-top: 20px solid #000;
-  height: 180px;
+  height: 200px;
   width: 107px;
 }
-/* line 25, modai-avatar.scss */
+/* line 24, modai-avatar.scss */
+.avatar .avatar-body .avatar-charge {
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  background-color: #000;
+  height: 147px;
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 107px;
+}
+/* line 36, modai-avatar.scss */
 .avatar .avatar-body .avatar-energy-mask {
   -moz-transition-property: all;
   -webkit-transition-property: all;
@@ -45,23 +62,24 @@ body.night {
   transition-duration: 0.4s;
   background-color: #000;
   height: 0px;
-  margin: 20px 0 0;
   overflow: hidden;
   position: absolute;
   top: 0;
   width: 107px;
 }
-/* line 37, modai-avatar.scss */
+/* line 47, modai-avatar.scss */
 .avatar .avatar-body .avatar-face {
-  height: 180px;
+  height: 200px;
+  position: absolute;
+  top: 0;
   width: 107px;
 }
-/* line 41, modai-avatar.scss */
+/* line 53, modai-avatar.scss */
 .avatar .avatar-body .avatar-face img {
   display: block;
   margin: 0 auto;
 }
-/* line 48, modai-avatar.scss */
+/* line 60, modai-avatar.scss */
 .avatar .avatar-notice {
   -moz-border-radius-topright: 20px;
   -webkit-border-top-right-radius: 20px;
@@ -83,11 +101,11 @@ body.night {
   border-bottom-right-radius: 20px;
   background-color: #E8C42D;
   display: none;
-  height: 600px;
+  height: 200px;
   position: relative;
   width: 400px;
 }
-/* line 57, modai-avatar.scss */
+/* line 69, modai-avatar.scss */
 .avatar .avatar-notice .avatar-notice-top {
   background-color: #E8C42D;
   height: 20px;
@@ -96,7 +114,7 @@ body.night {
   top: -20px;
   width: 293px;
 }
-/* line 65, modai-avatar.scss */
+/* line 77, modai-avatar.scss */
 .avatar .avatar-notice .avatar-notice-top span {
   -moz-border-radius-bottomleft: 20px;
   -webkit-border-bottom-left-radius: 20px;
@@ -108,7 +126,7 @@ body.night {
   display: block;
   height: 100%;
 }
-/* line 75, modai-avatar.scss */
+/* line 87, modai-avatar.scss */
 .avatar.active .avatar-body {
   -moz-border-radius-bottomleft: 0;
   -webkit-border-bottom-left-radius: 0;
@@ -123,11 +141,19 @@ body.night {
   -khtml-border-bottom-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-/* line 79, modai-avatar.scss */
+/* line 91, modai-avatar.scss */
 .avatar.active .avatar-notice {
   display: block;
 }
-/* line 84, modai-avatar.scss */
+/* line 97, modai-avatar.scss */
+.avatar.charge .avatar-energy-mask {
+  display: none;
+}
+/* line 101, modai-avatar.scss */
+.avatar.charge .avatar-charge {
+  display: block;
+}
+/* line 106, modai-avatar.scss */
 .avatar:hover {
   cursor: pointer;
 }
